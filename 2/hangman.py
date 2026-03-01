@@ -92,7 +92,11 @@ def get_available_letters(letters_guessed):
       yet been guessed.
     """
     # FILL IN YOUR CODE HERE AND DELETE "pass"
-    pass
+    available_letters = ""
+    for char in string.ascii_lowercase:
+        if char not in letters_guessed:
+            available_letters += char
+    return available_letters
 
 
 def hangman(secret_word):
