@@ -125,7 +125,8 @@ def hangman(secret_word):
     Follows the other limitations detailed in the problem write-up.
     """
     # FILL IN YOUR CODE HERE AND DELETE "pass"
-    pass
+    print("Welcome to the game Hangman!")
+    print(f"I am thinking of a word that is {len(secret_word)} letters long.")
 
 
 # When you've completed your hangman function, scroll down to the bottom
