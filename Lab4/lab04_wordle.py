@@ -575,36 +575,32 @@ def play_game():
        user is presented with "ST   k".
     3) The user has 6 guesses to guess the secret word."""
     word_list = get_word_list(words)
-    secret = new_word(words)
+    secret = new_word(words).lower()
     wordle_len = 6
     n_guesses = 6
     win = False
 
-    print(f"You have {n_guesses} to guess a 6-letter word.")
-    guess = input(str("Guess: "))
-
-
-    while guess != secret:
-        # if is_a_real_word(guess, word_list) and is_correct_len(guess, wordle_len):
-        #     result = make_wordle(guess, secret)
-        #     print(result)
-        #     n_guesses -= 1
-        # else:
-        #     print("Not a word or not the correct length.")
-        result = make_wordle(guess, secret)
-        print(result)
-        print(f"You have {n_guesses-1} guesses left.")
-        if n_guesses > 0:
-            guess = input("Guess: ")
-        elif guess == secret:
+    print(f"You have {n_guesses} guesses to find a 6-letter word.")
+    # loop until we run out of guesses or the user wins
+    while n_guesses > 0 and not win:
+        guess = input("Guess: ").strip().lower()
+        if guess == secret:
             win = True
             break
+
+        if is_a_real_word(guess, word_list) and is_correct_len(guess, wordle_len):
+            result = make_wordle(guess, secret)
+            print(result)
+            n_guesses -= 1
+            print(f"{n_guesses} guesses remaining.")
         else:
-            break
+            print("Not a word or not the correct length.")
+            # invalid guesses do not consume attempts
+
     if win:
         print("YOU WIN")
     else:
-        print("YOU LOSE")
+        print(f"YOU LOSE (the word was '{secret}')")
 
 
 play_game()
