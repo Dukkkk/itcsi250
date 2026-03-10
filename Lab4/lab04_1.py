@@ -4,14 +4,12 @@ def count_sqrts(nums_list):
     Assumes that nums_list only contains positive numbers and that there are no duplicates.
     Returns how many elements in nums_list are exact squares of elements in the same list, including itself.
     """
-    # Your code here
-    count = 0
-    j = 0
+    count = 0 
     for num in nums_list:
         for j in nums_list:
             if num == j ** 2:
                 count += 1
-                break 
+                break
     return count
 
 

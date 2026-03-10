@@ -1,0 +1,12 @@
+import pandas as pd
+data = pd.read_csv('C:\\git\\itcsi250\\Lab5\\student_data.csv')
+median = data['Оноо'].median()
+sd = data['Оноо'].std()
+min = data['Оноо'].min()
+max = data['Оноо'].max()
+mean = data['Оноо'].mean()
+print("median:", median)
+print("standard deviation:", sd)
+print("minimum:", min)
+print("maximum:", max)
+print("mean:", mean)

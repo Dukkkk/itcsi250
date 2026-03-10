@@ -523,7 +523,7 @@ def new_word(words):
 def get_word_list(words_str):
     """words_str is a multi-line string.
     Returns a list whose elements are lowercase words"""
-    return words_str.split("\n")
+    return words.split("\n")
 
 
 def is_a_real_word(s, word_list):
